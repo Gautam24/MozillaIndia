@@ -1,0 +1,153 @@
+<!doctype html>
+<html class="windows no-js" lang="en-US" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>Mozilla India</title>
+
+        <link rel="stylesheet" media="screen,projection,tv" href="css/styles.css" />
+        <link href="css/jquery.bxslider.css" rel="stylesheet" />
+
+        <!--[if lte IE 8]>
+        <script src="js/libs/html5shiv.js"></script>
+        <![endif]-->
+
+        <link rel="shortcut icon" href="img/favicon.ico">
+
+        <meta name="description" content="Mozilla India is part of the global community of Mozilla Foundation, founded to manifest the state of Mozilla community in India. Internet By The People Internet ...">
+        <meta name="keywords" content="mozilla, mozillaindia, firefox, india, open source, community, l10n, open, foss, floss, software">
+
+        <meta property="og:site_name" content="Mozilla India">
+        <meta property="og:url" content="http://mozillaindia.org/">
+        <meta property="og:title" content="Mozilla India">
+        <meta property="og:type" content="website">
+
+        <link rel="canonical" href="http://mozillaindia.org/">
+        <link rel="shortlink" href="http://mozillaindia.org/">
+        <style>
+         
+        </style>
+        <script src="js/libs/jquery-2.0.3.min.js"></script>
+        <script src="js/libs/modernizr.custom.26887.js"></script>
+        <script src="js/base/site.js"></script>
+        <script src="js/libs/jquery.bxslider.min.js"></script>
+        <script src="js/base/site.js"></script>
+        <script>
+         $(document).ready(function () {
+             $('.bxslider').bxSlider({maxSlides:1, auto: true});
+         });
+        </script>
+    </head>
+
+    <body id="home" class="html-ltr sand">
+        <div id="strings"   data-close='Close'
+             data-share='Share'
+             ></div>
+        <div id="outer-wrapper">
+            <div id="wrapper">
+
+                <header id="masthead">
+                    <a href="http://www.mozilla.org/" id="tabzilla">Mozilla</a>
+
+                    <nav id="nav-main" role="navigation">
+                        <span class="toggle" role="button" aria-controls="nav-main-menu" tabindex="0">Menu</span>
+                        <ul id="nav-main-menu">
+                            <li class="first"><a href="http://mozillaindia.org/">Home</a></li>
+                            <li><a href="http://www.mozilla.org/about/">About</a></li>
+                            <li><a href="http://www.mozilla.org/mission/">Mission</a></li>
+                            <li><a href="http://blog.mozillaindia.org">Blog</a></li>
+                            <li><a href="http://hive.mozillaindia.org">Hive</a></li>
+                            <li class="last"><a href="http://devs.mozillaindia.org/leaderboard">Leaderboard</a></li>
+                        </ul>
+                    </nav>
+                </header>
+
+                <hgroup id="main-feature" class="huge">
+                    <h1>Summit '13</h1>
+                    <h2>Our photos from Mozilla Summit 2013</h2>
+                </hgroup>
+
+                <div id="main-content">
+                    <div id="images"></div>
+                    <div>
+                        <a href="http://www.flickr.com/search/?q=mozsummit2013india">
+                            View all photos from MozSummit
+                        </a>
+                    </div>
+                </div>
+
+                <script>
+                 (function ($) {
+                     var flickrAPI = "http://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?";
+                     var htmlcode = '<ul class="images">';
+
+                     $.getJSON( flickrAPI, {
+                         tags: "mozsummit",
+                         tagmode: 'any',
+                         format: "json"
+                     })
+.done(function( data ) {
+                         $.each( data.items, function( i, item ) {
+                             htmlcode += "<li class='img-holder'>";
+                             htmlcode += "<a href='" + item.link + "'>";
+                             htmlcode += "<img src='" + item.media.m + "'>";
+                             htmlcode += "</a></li>";
+                         });
+                         htmlcode += "</ul>";
+                         $('#images').html(htmlcode);
+                     });
+                 })(jQuery);
+
+                </script>
+            </div><!-- close #wrapper -->
+
+            <footer id="colophon" class="">
+                <div class="row">
+
+                    <div class="footer-logo">
+                        <a href="/"><img src="img/sandstone/footer-mozilla.png" alt="mozilla"> <span class="footer-logo-india">India</span></a>
+                        <p>Have feedback? <a href="https://github.com/MozillaIndia/homepage/issues">File a bug</a>.
+                    </div>
+
+                    <div class="footer-license">
+                        <p>
+                        </p>
+                    </div>
+                    <ul class="footer-nav">
+                        <li><a href="http://www.mozilla.org/about/">About</a></li>
+                        <li><a href="http://www.mozilla.org/mission/">Mission</a></li>
+                        <li><a href="http://blog.mozillaindia.org">Blog</a></li>
+                        <li><a href="http://devs.mozillaindia.org/leaderboard">Leaderboard</a></li>
+                    </ul>
+                    <ul class="footer-nav">
+                        <li><a href="https://twitter.com/MozillaIN">Twitter</a></li>
+                        <li><a href="https://www.facebook.com/groups/MozillaIndia/">Facebook</a></li>
+                    </ul>
+
+                </div>
+            </footer>
+
+        </div><!-- close #outer-wrapper -->
+
+        <!--[if IE 9]>
+        <script src="js/libs/matchMedia.js"></script>
+        <![endif]-->
+
+
+        <script src="js/base/nav-main-resp.js"></script>
+        <script src="js/mozorg-resp-min.js"></script>
+        <script src="js/tabzilla/tabzilla.js"></script>
+        <script>
+         window.scrollback = {
+             streams: ['mozilla-india'],
+             theme:   'light',
+             ticker:  true
+         };
+         // Don't change below this line ------------------------------------------------
+         (function(d,h,e){e=d.createElement('script');e.async=1;e.src=h+'/client.min.js';
+                          scrollback.host=h;d.body.appendChild(e);}(document,'http://scrollback.io'));
+        </script>
+        <script src="js/mozin/feedreader.js"></script>
+    </body>
+</html>
